@@ -1,0 +1,20 @@
+<ul>
+  <% if ::Refinery::Snippets::Admin::SnippetsController.searchable? %>
+    <li>
+      <%= render '/refinery/admin/search', :url => refinery.snippets_admin_snippets_path %>
+    </li>
+  <% end %>
+  <li>
+    <%= action_label :add, refinery.new_snippets_admin_snippet_path, t('.create_new') %>
+  </li>
+<% if !searching? && ::Refinery::Snippets::Admin::SnippetsController.sortable? && ::Refinery::Snippets::Snippet.many? %>
+  <li>
+    <%= action_label :reorder,
+                     refinery.snippets_admin_snippets_path,
+                     t('.reorder', what: 'Snippets'), id: 'reorder_action'%>
+    <%= action_label :reorder_done,
+                     refinery.snippets_admin_snippets_path,
+                      t('.reorder_done', what: 'Snippets'), id: 'reorder_action_done', class: 'hidden'%>
+  </li>
+<% end %>
+</ul>

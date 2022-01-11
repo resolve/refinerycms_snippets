@@ -1,0 +1,29 @@
+ru:
+  refinery:
+    plugins:
+      snippets:
+        title: Snippets
+    snippets:
+      admin:
+        snippets:
+          actions:
+            create_new: Добавить Snippet
+            reorder: Изменить порядок Snippets
+            reorder_done: Закончить изменять порядок Snippets
+          records:
+            title: Snippets
+            sorry_no_results: "Извините, поиск не дал результатов."
+            no_items_yet: Записей "Snippets" не найдено. Нажмите "Добавить Snippet" чтобы создать snippet.
+          snippet:
+            view_live_html: Просмотреть snippet вживую <br/><em>(в новом окне)</em>
+            edit: Редактировать snippet
+            delete: Удалить snippet навсегда
+      snippets:
+        show:
+          other: Другие Snippets
+  activerecord:
+    attributes:
+      'refinery/snippets/snippet':
+        name: Name
+        scope: Scope
+        value: Value

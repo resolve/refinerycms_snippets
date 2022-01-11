@@ -1,0 +1,10 @@
+/*
+  *= require refinery/snippets/codemirror
+  *= require refinery/snippets/codemirror/addon/hint/show-hint
+*/
+.copy_icon {
+  &:before {
+    font-family: FontAwesome;
+    content: '\f0c5'
+  }
+}

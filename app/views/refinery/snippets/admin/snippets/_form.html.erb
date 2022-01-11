@@ -1,0 +1,31 @@
+<%= form_for [refinery, :snippets_admin, @snippet] do |f| -%>
+  <%= render '/refinery/admin/error_messages',
+              :object => @snippet,
+              :include_object_name => true %>
+
+  <div class='field'>
+    <%= f.label :name -%>
+    <%= f.text_field :name, :class => 'larger widest' -%>
+  </div>
+  <br/>
+  <div class='field'>
+    <a href="" id="switch-editor">Switch editor</a>
+    <%= f.text_area :value, class: 'visual_editor widest CodeMirror-matchingtag cm-trailingspace', placeholder: 'Code goes here...' -%>
+    <ul>
+      <li>ctrl + Space <span>Autocomplete</span></li>
+      <li>ctrl + J <span>Close tag</span></li>
+    </ul>
+  </div>
+
+  <div class='field'>
+    <%= f.label :description, 'Please add/update a brief note below, including URLs, to describe each place on CharterCenter.org that this snippet is being used.' -%>
+    <%= f.text_area :description, class: 'visual_editor widest'-%>
+  </div>
+
+  <%= render '/refinery/admin/form_actions', :f => f,
+             :continue_editing => false,
+             :delete_title => t('delete', :scope => 'refinery.snippets.admin.snippets.snippet'),
+             :delete_confirmation => t('message', :scope => 'refinery.admin.delete', :title => @snippet.name) -%>
+<% end -%>
+<% content_for :stylesheets, stylesheet_link_tag('refinery/snippets/snippets') %>
+<% content_for :javascripts, javascript_include_tag('refinery/snippets/snippets') %>
